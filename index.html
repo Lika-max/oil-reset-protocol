@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Oil Reset Protocol™ — A 90-Day Seed Oil & Inflammation Reset System</title>
+<meta name="description" content="A science-based 90-day system to remove harmful seed oils and refined fats from your diet, calm chronic inflammation, and support metabolic health. Scored diagnostic, oil decision map, and tracked 90-day protocol — not just an ebook.">
+<link rel="canonical" href="https://oil-reset-protocol.netlify.app/">
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="The Oil Reset Protocol™ — A 90-Day Seed Oil & Inflammation Reset System">
+<meta property="og:description" content="Remove harmful seed oils and refined fats, calm chronic inflammation, and support metabolic health with a science-based 90-day protocol — diagnostic, decision map, and tracked plan included.">
+<meta property="og:image" content="https://oil-reset-protocol.netlify.app/cover.jpg">
+<meta property="og:url" content="https://oil-reset-protocol.netlify.app/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Oil Reset Protocol™ — A 90-Day Seed Oil & Inflammation Reset System">
+<meta name="twitter:description" content="Science-based 90-day system to remove harmful seed oils, calm inflammation, and support metabolic health.">
+
+<!-- Structured data for search result rich snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "The Oil Reset Protocol™",
+  "description": "A science-based 90-day program to remove harmful seed oils and refined fats from your diet, calm chronic inflammation, and support metabolic health. Includes a scored fat load diagnostic, an oil decision map, an oil stability rating chart, a 90-day tracked protocol, a wellness and lab journal, and metabolic energy recipes.",
+  "brand": {
+    "@type": "Person",
+    "name": "Lika Lee"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "167",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --oil-dark:#20130a;
+    --oil-dark-2:#2c1a0e;
+    --amber:#a1652f;
+    --amber-bright:#d68a3f;
+    --olive:#5c6b2f;
+    --olive-bright:#8fa33e;
+    --parchment:#f4ecda;
+    --parchment-dim:#e8dcc2;
+    --ink:#231407;
+    --teal:#2c5a52;
+    --teal-bright:#4f8f83;
+    --line: rgba(244,236,218,0.16);
+    --max: 1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--oil-dark);
+    color:var(--parchment);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  :focus-visible{outline:2px solid var(--olive-bright); outline-offset:3px;}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+
+  /* ---------- background texture: oil sheen ---------- */
+  .oil-sheen{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(ellipse 900px 500px at 12% -8%, rgba(214,138,63,0.18), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 105% 15%, rgba(92,107,47,0.14), transparent 55%),
+      radial-gradient(ellipse 900px 700px at 50% 120%, rgba(44,90,82,0.10), transparent 60%);
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:relative; z-index:2;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .header-row{display:flex; align-items:center; justify-content:space-between;}
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.02em;
+  }
+  .brand sup{font-size:0.55em; opacity:0.7;}
+  .header-cta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    padding:9px 16px;
+    border:1px solid var(--line);
+    border-radius:100px;
+    text-decoration:none;
+    color:var(--parchment);
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .header-cta:hover{border-color:var(--olive-bright); background:rgba(143,163,62,0.08);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; z-index:2;
+    padding:96px 0 72px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:64px;
+    align-items:center;
+  }
+  .hero-cover-wrap{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:24px 0;
+  }
+  .hero-cover-wrap::before{
+    content:"";
+    position:absolute;
+    width:62%;
+    height:62%;
+    background:radial-gradient(ellipse at center, rgba(214,138,63,0.32), transparent 72%);
+    filter:blur(42px);
+    z-index:0;
+  }
+  .hero-cover-inner{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:300px;
+    line-height:0;
+  }
+  .hero-cover-inner img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:4px;
+    box-shadow:
+      0 1px 2px rgba(0,0,0,0.35),
+      0 30px 60px -10px rgba(0,0,0,0.6),
+      0 0 0 1px rgba(244,236,218,0.09);
+  }
+  .hero-cover-caption{
+    position:relative; z-index:1;
+    text-align:center;
+    margin-top:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--parchment-dim);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--olive-bright);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:26px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px; height:1px;
+    background:var(--olive-bright);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 4.4rem);
+    line-height:1.04;
+    max-width:15ch;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--amber-bright);
+  }
+  .hero-sub{
+    margin-top:26px;
+    max-width:56ch;
+    font-size:1.14rem;
+    color:var(--parchment-dim);
+  }
+  .hero-cta-row{
+    margin-top:40px;
+    display:flex; align-items:center; gap:22px; flex-wrap:wrap;
+  }
+  .btn-primary{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    letter-spacing:0.02em;
+    background:var(--olive-bright);
+    color:#161d08;
+    border:none;
+    padding:15px 26px;
+    border-radius:4px;
+    font-weight:600;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary:hover{background:#a4bb52; transform:translateY(-1px);}
+  .price-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--parchment-dim);
+  }
+  .price-tag b{
+    color:var(--parchment);
+    font-size:1.05rem;
+  }
+
+  /* thin data strip under hero */
+  .credibility-strip{
+    position:relative; z-index:2;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:rgba(0,0,0,0.14);
+  }
+  .cs-row{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:0;
+  }
+  .cs-item{
+    padding:22px 20px;
+    border-left:1px solid var(--line);
+    text-align:left;
+  }
+  .cs-item:first-child{border-left:none;}
+  .cs-num{
+    font-family:'Fraunces', serif;
+    font-size:1.9rem;
+    color:var(--amber-bright);
+    font-weight:600;
+  }
+  .cs-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.04em;
+    color:var(--parchment-dim);
+    margin-top:4px;
+    text-transform:uppercase;
+  }
+
+  /* ---------- section shell ---------- */
+  section{position:relative; z-index:2;}
+  .section-pad{padding:96px 0;}
+  .section-head{
+    max-width:62ch;
+    margin-bottom:56px;
+  }
+  .section-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--teal-bright);
+    margin-bottom:14px;
+    display:block;
+  }
+  .section-head h2{
+    font-size:clamp(1.7rem, 3.4vw, 2.5rem);
+    line-height:1.14;
+  }
+  .section-head p{
+    margin-top:16px;
+    color:var(--parchment-dim);
+    font-size:1.04rem;
+  }
+
+  /* ---------- the "not a book" strip ---------- */
+  .not-book{
+    background:var(--oil-dark-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .not-book .inner{
+    padding:60px 0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:start;
+  }
+  .not-book-col h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin-bottom:18px;
+    font-weight:600;
+  }
+  .not-book-col.what-it-isnt h3{color:#c98a6a;}
+  .not-book-col.what-it-is h3{color:var(--olive-bright);}
+  .not-book-col ul{list-style:none; margin:0; padding:0;}
+  .not-book-col li{
+    padding:11px 0;
+    border-bottom:1px solid var(--line);
+    font-size:1rem;
+    display:flex;
+    gap:12px;
+  }
+  .not-book-col li:last-child{border-bottom:none;}
+  .not-book-col.what-it-isnt li::before{content:"–"; color:#c98a6a; flex-shrink:0;}
+  .not-book-col.what-it-is li::before{content:"+"; color:var(--olive-bright); flex-shrink:0; font-family:'IBM Plex Mono', monospace;}
+
+  /* ---------- the 6 components: specimen cards ---------- */
+  .components-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+  }
+  .spec-card{
+    background:var(--parchment);
+    color:var(--ink);
+    border-radius:6px;
+    padding:26px 24px 24px;
+    position:relative;
+    overflow:hidden;
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .spec-card.pre-animate{opacity:0; transform:translateY(18px);}
+  .spec-card.in-view{opacity:1; transform:translateY(0);}
+  .spec-card::before{
+    content:"";
+    position:absolute; top:0; left:0; right:0; height:6px;
+    background:var(--card-accent, var(--olive));
+  }
+  .spec-tag{
+    position:absolute; top:18px; right:18px;
+    width:26px; height:26px;
+    border-radius:50%;
+    border:1.5px dashed rgba(35,20,7,0.35);
+  }
+  .spec-index{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:var(--card-accent, var(--olive));
+    font-weight:600;
+    text-transform:uppercase;
+  }
+  .spec-card h3{
+    font-size:1.28rem;
+    margin-top:10px;
+    line-height:1.18;
+    max-width:88%;
+  }
+  .spec-card .spec-desc{
+    margin-top:12px;
+    font-size:0.92rem;
+    color:rgba(35,20,7,0.72);
+    line-height:1.55;
+  }
+  .spec-meter{
+    margin-top:18px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .spec-meter-track{
+    flex:1; height:5px; border-radius:100px;
+    background:rgba(35,20,7,0.1);
+    overflow:hidden;
+  }
+  .spec-meter-fill{
+    height:100%; border-radius:100px;
+    background:var(--card-accent, var(--olive));
+  }
+  .spec-meter-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.66rem;
+    color:rgba(35,20,7,0.55);
+    white-space:nowrap;
+  }
+  .spec-format{
+    margin-top:16px;
+    padding-top:14px;
+    border-top:1px dashed rgba(35,20,7,0.18);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    color:rgba(35,20,7,0.5);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+
+  /* ---------- science bar ---------- */
+  .science-band{
+    background:var(--teal);
+    border-top:1px solid rgba(244,236,218,0.15);
+    border-bottom:1px solid rgba(244,236,218,0.15);
+  }
+  .science-inner{
+    padding:56px 0;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .science-inner h2{
+    font-size:clamp(1.5rem, 2.6vw, 2.05rem);
+    line-height:1.2;
+    color:var(--parchment);
+  }
+  .science-inner p{
+    margin-top:14px;
+    color:rgba(244,236,218,0.82);
+    font-size:1rem;
+    max-width:52ch;
+  }
+  .science-list{list-style:none; margin:0; padding:0;}
+  .science-list li{
+    display:flex; gap:14px; align-items:flex-start;
+    padding:13px 0;
+    border-bottom:1px solid rgba(244,236,218,0.14);
+  }
+  .science-list li:last-child{border-bottom:none;}
+  .science-list .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--amber-bright);
+    padding-top:2px;
+  }
+  .science-list .txt b{display:block; font-size:0.98rem; color:var(--parchment);}
+  .science-list .txt span{font-size:0.86rem; color:rgba(244,236,218,0.68);}
+
+  /* ---------- 90 day path ---------- */
+  .path-rail{
+    position:relative;
+    padding-left:2px;
+  }
+  .phase-row{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:28px;
+    padding:28px 0;
+    border-top:1px solid var(--line);
+  }
+  .phase-row:last-child{border-bottom:1px solid var(--line);}
+  .phase-days{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--amber-bright);
+    padding-top:4px;
+  }
+  .phase-row h3{
+    font-size:1.2rem;
+    color:var(--parchment);
+    margin-bottom:8px;
+  }
+  .phase-row p{
+    color:var(--parchment-dim);
+    font-size:0.96rem;
+    max-width:60ch;
+  }
+
+  /* ---------- pricing ---------- */
+  .pricing-card{
+    background:var(--parchment);
+    color:var(--ink);
+    border-radius:10px;
+    padding:48px;
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:40px;
+  }
+  .pricing-left h3{
+    font-size:1.6rem;
+    line-height:1.25;
+  }
+  .pricing-left p{
+    margin-top:14px;
+    color:rgba(35,20,7,0.7);
+    font-size:0.98rem;
+  }
+  .includes-list{list-style:none; margin:26px 0 0; padding:0;}
+  .includes-list li{
+    display:flex; gap:12px; align-items:baseline;
+    padding:9px 0;
+    font-size:0.94rem;
+    border-bottom:1px dashed rgba(35,20,7,0.14);
+  }
+  .includes-list li:last-child{border-bottom:none;}
+  .includes-list .check{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--olive);
+    font-weight:600;
+  }
+  .pricing-right{
+    background:var(--oil-dark);
+    border-radius:8px;
+    padding:32px 28px;
+    text-align:left;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .price-big{
+    font-family:'Fraunces', serif;
+    font-size:3.4rem;
+    font-weight:600;
+    color:var(--parchment);
+    line-height:1;
+  }
+  .price-big span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1rem;
+    color:var(--parchment-dim);
+    vertical-align:top;
+  }
+  .price-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--parchment-dim);
+    margin-top:8px;
+  }
+  .purchase-disclaimer{
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px solid rgba(244,236,218,0.14);
+    font-size:0.78rem;
+    line-height:1.5;
+    color:var(--parchment-dim);
+  }
+  .pricing-right .btn-primary{
+    margin-top:24px; width:100%; text-align:center;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:36px 0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--parchment-dim);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  }
+
+  /* ---------- sticky mobile CTA ---------- */
+  .sticky-cta{
+    position:fixed;
+    bottom:0; left:0; right:0;
+    z-index:50;
+    background:var(--oil-dark-2);
+    border-top:1px solid var(--line);
+    padding:12px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    transform:translateY(100%);
+    transition:transform .3s ease;
+    box-shadow:0 -8px 24px rgba(0,0,0,0.35);
+  }
+  .sticky-cta.visible{transform:translateY(0);}
+  .sticky-cta-price{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--parchment-dim);
+    flex-shrink:0;
+  }
+  .sticky-cta-price b{color:var(--parchment); font-size:1.1rem;}
+  .sticky-cta .btn-primary{padding:12px 20px; font-size:0.8rem; white-space:nowrap;}
+
+  /* ---------- risk reversal strip ---------- */
+  .risk-reversal{
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+  }
+  .risk-item{
+    display:flex; align-items:center; gap:8px;
+    font-size:0.82rem;
+    color:rgba(35,20,7,0.68);
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .risk-item .dot{
+    width:5px; height:5px; border-radius:50%;
+    background:var(--olive);
+    flex-shrink:0;
+  }
+
+  /* ---------- secondary CTA band (mid-page) ---------- */
+  .mid-cta{
+    background:var(--oil-dark-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .mid-cta .inner{
+    padding:44px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .mid-cta p{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    color:var(--parchment);
+    max-width:40ch;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:760px;}
+  .faq-item{
+    border-bottom:1px solid var(--line);
+  }
+  .faq-question{
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    color:var(--parchment);
+    font-family:'Fraunces', serif;
+    font-size:1.08rem;
+    padding:22px 0;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+  }
+  .faq-question .icon{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--olive-bright);
+    font-size:1.2rem;
+    flex-shrink:0;
+    transition:transform .2s ease;
+  }
+  .faq-item.open .faq-question .icon{transform:rotate(45deg);}
+  .faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+  }
+  .faq-item.open .faq-answer{max-height:300px;}
+  .faq-answer p{
+    padding:0 0 22px;
+    color:var(--parchment-dim);
+    font-size:0.96rem;
+    max-width:65ch;
+  }
+
+  @media (max-width: 860px){
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .hero-cover-wrap{order:-1;}
+    .hero-cover-inner{max-width:220px;}
+    .not-book .inner{grid-template-columns:1fr;}
+    .components-grid{grid-template-columns:1fr;}
+    .science-inner{grid-template-columns:1fr;}
+    .pricing-card{grid-template-columns:1fr;}
+    .cs-row{grid-template-columns:1fr 1fr;}
+    .cs-item:nth-child(3){border-left:none;}
+    .phase-row{grid-template-columns:1fr; gap:8px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="oil-sheen"></div>
+
+<header>
+  <div class="wrap header-row">
+    <div class="brand">THE OIL RESET <sup>PROTOCOL™</sup></div>
+    <a class="header-cta" href="#pricing">See what's included →</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow">A 6-part clinical protocol, not a book</div>
+      <h1>This isn't something<br>you read. It's something<br>you <em>run</em> — for 90 days.</h1>
+      <p class="hero-sub">The Oil Reset Protocol™ is a diagnostic, a decision system, and a 90-day tracked program built to remove refined seed oils, trans fats, and industrial cooking oils from your diet — calm chronic inflammation, and support metabolic health. Six components. One system. Zero pseudoscience.</p>
+      <div class="hero-cta-row">
+        <a class="btn-primary" href="https://app.lava.top/products/aced3758-6d9f-4c1e-92a4-15b6784e4186" target="_blank" rel="noopener">Start the Protocol — $167</a>
+        <span class="price-tag">One-time · Lifetime access · <b>6 tools</b>, not 19 chapters</span>
+      </div>
+    </div>
+    <div class="hero-cover-wrap">
+      <div class="hero-cover-inner">
+        <img src="cover.jpg" alt="The Oil Reset Protocol — book cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="credibility-strip">
+  <div class="wrap cs-row">
+    <div class="cs-item">
+      <div class="cs-num">40+</div>
+      <div class="cs-label">Peer-reviewed sources cited</div>
+    </div>
+    <div class="cs-item">
+      <div class="cs-num">6</div>
+      <div class="cs-label">Standalone tools, not chapters</div>
+    </div>
+    <div class="cs-item">
+      <div class="cs-num">90</div>
+      <div class="cs-label">Days, 3 phases, 3 checkpoints</div>
+    </div>
+    <div class="cs-item">
+      <div class="cs-num">4</div>
+      <div class="cs-label">Personalized starting routes</div>
+    </div>
+  </div>
+</div>
+
+<div class="not-book">
+  <div class="wrap inner">
+    <div class="not-book-col what-it-isnt">
+      <h3>What you're not buying</h3>
+      <ul>
+        <li>19 chapters to read start to finish</li>
+        <li>Generic advice that ignores your starting point</li>
+        <li>Vague "eat healthy fats" wellness talk</li>
+        <li>A PDF you open once and forget</li>
+      </ul>
+    </div>
+    <div class="not-book-col what-it-is">
+      <h3>What you're actually buying</h3>
+      <ul>
+        <li>A scored diagnostic that routes you to your level</li>
+        <li>A decision map you use every time you cook</li>
+        <li>A lab-grade tracker for 90 days of change</li>
+        <li>A system built to be referenced, not shelved</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section class="section-pad" id="components">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">The six components</span>
+      <h2>Every tool has one job. Together, they're the Protocol.</h2>
+      <p>This is the order you'll actually use them in — diagnose your seed oil and refined fat intake, then decide daily, then track your 90-day metabolic reset.</p>
+    </div>
+
+    <div class="components-grid">
+
+      <div class="spec-card" style="--card-accent:#5c6b2f">
+        <span class="spec-tag" aria-hidden="true"></span>
+        <div class="spec-index">01 · Diagnostic</div>
+        <h3>Fat Load Index Test</h3>
+        <p class="spec-desc">18 scored questions. Tells you exactly where your diet sits today, and which of the 4 protocol routes is yours — not a generic starting point.</p>
+        <div class="spec-meter">
+          <div class="spec-meter-track"><div class="spec-meter-fill" style="width:90%"></div></div>
+          <span class="spec-meter-label">5 min</span>
+        </div>
+        <div class="spec-format">Self-scored · Chapter 1</div>
+      </div>
+
+      <div class="spec-card" style="--card-accent:#a1652f">
+        <span class="spec-tag" aria-hidden="true"></span>
+        <div class="spec-index">02 · Reference</div>
+        <h3>Oil Decision Map™</h3>
+        <p class="spec-desc">A 4-question flowchart that tells you which oil to reach for, in seconds — printable, kitchen-ready, used daily rather than read once.</p>
+        <div class="spec-meter">
+          <div class="spec-meter-track"><div class="spec-meter-fill" style="width:20%"></div></div>
+          <span class="spec-meter-label">10 sec</span>
+        </div>
+        <div class="spec-format">Printable card · Chapter 18</div>
+      </div>
+
+      <div class="spec-card" style="--card-accent:#c98a6a">
+        <span class="spec-tag" aria-hidden="true"></span>
+        <div class="spec-index">03 · Reference</div>
+        <h3>Oil Stability Rating™</h3>
+        <p class="spec-desc">Every common cooking oil, ranked A–D by heat stability and oxidation risk — grounded in lipid chemistry, not brand marketing.</p>
+        <div class="spec-meter">
+          <div class="spec-meter-track"><div class="spec-meter-fill" style="width:35%"></div></div>
+          <span class="spec-meter-label">2 min</span>
+        </div>
+        <div class="spec-format">A–D scale · Chapter 17</div>
+      </div>
+
+      <div class="spec-card" style="--card-accent:#2c5a52">
+        <span class="spec-tag" aria-hidden="true"></span>
+        <div class="spec-index">04 · Program</div>
+        <h3>90-Day Fat Balance Protocol™</h3>
+        <p class="spec-desc">Three phases — Reset, Rebuild, Automate — with a distinct route for each of your 4 diagnostic levels. Not one plan for everyone.</p>
+        <div class="spec-meter">
+          <div class="spec-meter-track"><div class="spec-meter-fill" style="width:100%"></div></div>
+          <span class="spec-meter-label">90 days</span>
+        </div>
+        <div class="spec-format">4 personalized routes · Ch. 16</div>
+      </div>
+
+      <div class="spec-card" style="--card-accent:#8fa33e">
+        <span class="spec-tag" aria-hidden="true"></span>
+        <div class="spec-index">05 · Tracker</div>
+        <h3>Wellness &amp; Lab Journal</h3>
+        <p class="spec-desc">Daily energy, sleep and gut logs plus optional before/after lab markers — CRP, lipid panel, ApoB — with interpretation at day 30, 60 and 90.</p>
+        <div class="spec-meter">
+          <div class="spec-meter-track"><div class="spec-meter-fill" style="width:100%"></div></div>
+          <span class="spec-meter-label">90 days</span>
+        </div>
+        <div class="spec-format">Printable journal · Bonus</div>
+      </div>
+
+      <div class="spec-card" style="--card-accent:#d68a3f">
+        <span class="spec-tag" aria-hidden="true"></span>
+        <div class="spec-index">06 · Application</div>
+        <h3>7 Metabolic Energy Recipes</h3>
+        <p class="spec-desc">Everyday recipes built entirely around Level-A oils — so the Protocol isn't theory you have to translate, it's already on the plate.</p>
+        <div class="spec-meter">
+          <div class="spec-meter-track"><div class="spec-meter-fill" style="width:45%"></div></div>
+          <span class="spec-meter-label">Ongoing</span>
+        </div>
+        <div class="spec-format">7 recipes · Chapter 19</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="mid-cta">
+  <div class="wrap inner">
+    <p>Still deciding? The diagnostic alone takes 5 minutes and tells you exactly where you stand.</p>
+    <a class="btn-primary" href="https://app.lava.top/products/aced3758-6d9f-4c1e-92a4-15b6784e4186" target="_blank" rel="noopener">Get the Protocol — $167</a>
+  </div>
+</div>
+
+<div class="science-band">
+  <div class="wrap science-inner">
+    <div>
+      <h2>Built from the literature, not from trends.</h2>
+      <p>Every mechanism claim in the Protocol traces back to a peer-reviewed source — cited by name, checked against the original publication, not paraphrased from a blog. Where the evidence is mixed, the Protocol says so.</p>
+    </div>
+    <ul class="science-list">
+      <li>
+        <span class="num">01</span>
+        <span class="txt"><b>Named, checkable citations</b><span>Author, year, journal — every time a mechanism is claimed.</span></span>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <span class="txt"><b>Human data flagged separately from animal data</b><span>The Protocol tells you which is which — most books don't.</span></span>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <span class="txt"><b>Mixed or null results included</b><span>When a trial found no effect, the Protocol says that too.</span></span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Component 04, in detail</span>
+      <h2>90 days, three phases, four starting points.</h2>
+      <p>Your Fat Load Index score routes you into one of four versions of this path — this is the Level 1 (Moderate) route, shown as an example.</p>
+    </div>
+    <div class="path-rail">
+      <div class="phase-row">
+        <div class="phase-days">WEEKS 1–4</div>
+        <div>
+          <h3>Phase I — Reset</h3>
+          <p>Full kitchen and pantry audit. Identify hidden industrial fats. Introduce your first three oil substitutions. Begin the daily wellness log.</p>
+        </div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-days">MONTH 2</div>
+        <div>
+          <h3>Phase II — Rebuild</h3>
+          <p>Restructure meals around stable fats. Reintroduce whole foods systematically. Establish rules for eating outside the home.</p>
+        </div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-days">MONTH 3</div>
+        <div>
+          <h3>Phase III — Automate</h3>
+          <p>New choices become default, not effortful. Optional re-testing of lab markers. Build your personal maintenance protocol for year two.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Before you decide</span>
+      <h2>Questions people ask before starting.</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>What format is this — a PDF, an app, something else?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>A downloadable digital package: the full Protocol text, the printable Oil Decision Map™ and Oil Stability Rating™ reference cards, and the Wellness &amp; Lab Journal as a separate printable file. No app to install, no login to maintain — built to be printed and used in your kitchen.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Is this medical advice? I have a health condition.</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>No. The Protocol is educational content about dietary fats, not a treatment plan. If you have a diagnosed condition, take medication, or are pregnant or breastfeeding, talk to your doctor before making significant dietary changes — the Protocol says this explicitly, more than once.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>What if the 90-day plan doesn't fit my life?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Your Fat Load Index score routes you to one of four different starting points, so the plan isn't one-size-fits-all. Phase pacing is also flexible — the Protocol is built around consistency over weeks, not perfection on any single day.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Why $167 instead of a $9.99 ebook?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Because it isn't just an ebook. You're getting a scored diagnostic, a daily decision tool, a full 90-day tracked plan across four personalized routes, a lab-marker journal, and a cited source list — six components built to be used, not just read once.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>What if it's not right for me?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Read the full description above before purchasing — it lists exactly what's included. As a digital product, this purchase is final: once payment is made and the download is granted, refunds and exchanges aren't possible.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">What's included</span>
+      <h2>One purchase. Six tools. No subscription.</h2>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-left">
+        <h3>The Oil Reset Protocol™ — Complete System</h3>
+        <p>Every component above, delivered as a single lifetime-access package. No app to maintain, no recurring fee — built to be printed, referenced, and used in your actual kitchen for the full 90 days and beyond.</p>
+        <ul class="includes-list">
+          <li><span class="check">✓</span> Fat Load Index diagnostic (scored, 4 routes)</li>
+          <li><span class="check">✓</span> Oil Decision Map™ (printable)</li>
+          <li><span class="check">✓</span> Oil Stability Rating™ reference chart</li>
+          <li><span class="check">✓</span> 90-Day Fat Balance Protocol™ (all 4 levels)</li>
+          <li><span class="check">✓</span> Wellness &amp; Lab Journal with checkpoint interpretation</li>
+          <li><span class="check">✓</span> 7 Metabolic Energy recipes</li>
+          <li><span class="check">✓</span> Full cited source list (40+ studies)</li>
+        </ul>
+        <div class="risk-reversal">
+          <span class="risk-item"><span class="dot"></span>Instant digital delivery</span>
+          <span class="risk-item"><span class="dot"></span>Secure checkout</span>
+        </div>
+      </div>
+      <div class="pricing-right">
+        <div>
+          <div class="price-big"><span>$</span>167</div>
+          <div class="price-note">one-time payment · instant access</div>
+        </div>
+        <a class="btn-primary" href="https://app.lava.top/products/aced3758-6d9f-4c1e-92a4-15b6784e4186" target="_blank" rel="noopener">Get the Protocol</a>
+        <p class="purchase-disclaimer">Disclaimer: This is a digital product (e-book). Due to legal restrictions and platform rules, refunds and exchanges are not possible once payment has been made and the download has been granted. Please read the product description before purchasing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+    <span>THE OIL RESET PROTOCOL™ — Lika Lee</span>
+    <span>Educational content · Not medical advice · Consult a physician before dietary changes</span>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <span class="sticky-cta-price">The Oil Reset Protocol™ · <b>$167</b></span>
+  <a class="btn-primary" href="https://app.lava.top/products/aced3758-6d9f-4c1e-92a4-15b6784e4186" target="_blank" rel="noopener">Get the Protocol</a>
+</div>
+
+<script>
+  const cards = document.querySelectorAll('.spec-card');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if(!prefersReducedMotion){
+    // Only hide cards for the reveal animation if JS actually runs.
+    // If this script fails for any reason, cards stay visible (no pre-animate class ever added).
+    cards.forEach(c=>c.classList.add('pre-animate'));
+
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach((e, i)=>{
+        if(e.isIntersecting){
+          setTimeout(()=>e.target.classList.add('in-view'), i * 60);
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.15});
+    cards.forEach(c=>io.observe(c));
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o=>{
+        o.classList.remove('open');
+        o.querySelector('.faq-question').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+  // sticky CTA: show after hero is scrolled past, hide once pricing section is reached
+  const stickyCta = document.getElementById('stickyCta');
+  const heroEl = document.querySelector('.hero');
+  const pricingEl = document.getElementById('pricing');
+  const stickyIo = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.target === heroEl){
+        // hero left the viewport upward -> show sticky bar
+        if(!entry.isIntersecting && entry.boundingClientRect.top < 0){
+          stickyCta.classList.add('visible');
+        } else if(entry.isIntersecting){
+          stickyCta.classList.remove('visible');
+        }
+      }
+      if(entry.target === pricingEl && entry.isIntersecting){
+        stickyCta.classList.remove('visible');
+      }
+    });
+  }, {threshold:0});
+  if(heroEl) stickyIo.observe(heroEl);
+  if(pricingEl) stickyIo.observe(pricingEl);
+</script>
+
+</body>
+</html>
