@@ -16,6 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Oil Reset Protocol™ — A 90-Day Seed Oil & Inflammation Reset System">
 <meta name="twitter:description" content="Science-based 90-day system to remove harmful seed oils, calm inflammation, and support metabolic health.">
+<meta name="twitter:image" content="https://lika-max.github.io/oil-reset-protocol/cover.jpg">
 
 <!-- Structured data for search result rich snippets -->
 <script type="application/ld+json">
@@ -401,6 +402,78 @@
   }
 
   /* ---------- science bar ---------- */
+  /* ---------- author trust section ---------- */
+  .author-band{
+    background:var(--oil-dark-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .author-inner{
+    padding:64px 0;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:36px;
+    align-items:flex-start;
+  }
+  .author-avatar{
+    width:88px; height:88px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--olive), var(--amber));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size:1.9rem;
+    font-weight:600;
+    color:var(--parchment);
+    flex-shrink:0;
+  }
+  .author-inner h3{
+    font-size:0.78rem;
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--teal-bright);
+    margin-bottom:10px;
+  }
+  .author-name{
+    font-family:'Fraunces', serif;
+    font-size:1.4rem;
+    color:var(--parchment);
+    margin-bottom:14px;
+  }
+  .author-inner p{
+    color:var(--parchment-dim);
+    font-size:1rem;
+    max-width:64ch;
+    margin:0 0 12px;
+  }
+  .author-facts{
+    margin-top:18px;
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  .author-fact{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--parchment-dim);
+  }
+  .author-fact b{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    color:var(--amber-bright);
+    font-weight:600;
+  }
+  .author-note{
+    margin-top:16px;
+    font-size:0.82rem;
+    color:rgba(244,236,218,0.55);
+    font-style:italic;
+  }
+  @media (max-width: 600px){
+    .author-inner{grid-template-columns:1fr; text-align:left;}
+  }
+
   .science-band{
     background:var(--teal);
     border-top:1px solid rgba(244,236,218,0.15);
@@ -954,6 +1027,25 @@
     </div>
   </div>
 </section>
+
+<div class="author-band">
+  <div class="wrap author-inner">
+    <div class="author-avatar">LL</div>
+    <div>
+      <h3>Why this book exists</h3>
+      <div class="author-name">Lika Lee</div>
+      <p>I didn't start with a theory. I started with a question for my cardiologist: <em>"Is this actually safe to try?"</em> He gave me the go-ahead. Ninety days later — steadier energy, [маркеры] moving the right direction, real changes in how I looked and felt.</p>
+      <p>I'm not a doctor or a licensed nutritionist. But I'm relentless about accuracy: every mechanism claim in this Protocol was checked against its original peer-reviewed source — never paraphrased from a blog, never taken on faith. When a study I found didn't hold up, it was cut.</p>
+      <p>Check with your physician first, then follow a system that's already been checked, tested, and lived in.</p>
+      <div class="author-facts">
+        <span class="author-fact"><b>40+</b>peer-reviewed sources verified</span>
+        <span class="author-fact"><b>100+</b>hours of source-checking</span>
+        <span class="author-fact"><b>0</b>fabricated or unchecked citations</span>
+      </div>
+      <p class="author-note">Individual results vary — this reflects one person's experience under medical supervision, not a guarantee.</p>
+    </div>
+  </div>
+</div>
 
 <section class="section-pad" id="pricing">
   <div class="wrap">
