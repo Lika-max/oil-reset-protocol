@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Fat Load Index Test — The Oil Reset Protocol™</title>
+<meta name="description" content="Take the free 5-question Fat Load Index mini-test and find out where your diet stands — plus get a discount code for The Oil Reset Protocol™.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --oil-dark:#20130a;
+    --oil-dark-2:#2c1a0e;
+    --amber:#a1652f;
+    --amber-bright:#d68a3f;
+    --olive:#5c6b2f;
+    --olive-bright:#8fa33e;
+    --parchment:#f4ecda;
+    --parchment-dim:#e8dcc2;
+    --ink:#231407;
+    --teal:#2c5a52;
+    --teal-bright:#4f8f83;
+    --line: rgba(244,236,218,0.16);
+    --max: 720px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--oil-dark);
+    color:var(--parchment);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,.display{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+  :focus-visible{outline:2px solid var(--olive-bright); outline-offset:3px;}
+
+  .oil-sheen{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(ellipse 900px 500px at 12% -8%, rgba(214,138,63,0.18), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 105% 15%, rgba(92,107,47,0.14), transparent 55%);
+  }
+
+  header{padding:24px 0; border-bottom:1px solid var(--line); position:relative; z-index:2;}
+  .brand{font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem;}
+  .brand sup{font-size:0.55em; opacity:0.7;}
+
+  main{position:relative; z-index:2; padding:64px 0 100px;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--olive-bright);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{content:""; width:24px; height:1px; background:var(--olive-bright);}
+
+  h1{font-size:clamp(1.9rem, 5vw, 2.6rem); line-height:1.12; max-width:18ch;}
+  .lede{margin-top:18px; color:var(--parchment-dim); font-size:1.05rem; max-width:56ch;}
+
+  /* ---------- quiz card ---------- */
+  .quiz-card{
+    margin-top:44px;
+    background:var(--parchment);
+    color:var(--ink);
+    border-radius:8px;
+    padding:36px 32px;
+  }
+  .quiz-progress{
+    display:flex; gap:6px; margin-bottom:26px;
+  }
+  .quiz-progress span{
+    flex:1; height:4px; border-radius:100px; background:rgba(35,20,7,0.12);
+    transition:background .25s ease;
+  }
+  .quiz-progress span.done{background:var(--olive);}
+
+  .q-block{display:none;}
+  .q-block.active{display:block;}
+  .q-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--olive);
+    margin-bottom:8px;
+  }
+  .q-text{font-size:1.18rem; font-weight:600; margin-bottom:20px; line-height:1.32;}
+  .q-options{display:flex; flex-direction:column; gap:10px;}
+  .q-option{
+    display:block;
+    padding:14px 16px;
+    border:1.5px solid rgba(35,20,7,0.16);
+    border-radius:6px;
+    cursor:pointer;
+    font-size:0.96rem;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .q-option:hover{border-color:var(--olive);}
+  .q-option input{margin-right:10px;}
+  .q-option.selected{border-color:var(--olive); background:rgba(92,107,47,0.08);}
+
+  .quiz-nav{margin-top:26px; display:flex; justify-content:space-between; align-items:center;}
+  .quiz-back{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:rgba(35,20,7,0.5);
+    background:none; border:none; cursor:pointer;
+    visibility:hidden;
+  }
+  .quiz-back.show{visibility:visible;}
+
+  .btn-primary{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    background:var(--olive-bright);
+    color:#161d08;
+    border:none;
+    padding:14px 24px;
+    border-radius:4px;
+    font-weight:600;
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary:hover{background:#a4bb52; transform:translateY(-1px);}
+  .btn-primary:disabled{opacity:0.45; cursor:not-allowed; transform:none;}
+
+  /* ---------- result + email capture ---------- */
+  .result-block{display:none;}
+  .result-block.active{display:block;}
+  .result-score{
+    font-family:'Fraunces', serif;
+    font-size:2.6rem;
+    color:var(--amber);
+    font-weight:600;
+  }
+  .result-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--olive);
+    margin-top:4px;
+  }
+  .result-text{margin-top:16px; font-size:0.98rem; color:rgba(35,20,7,0.75); max-width:52ch;}
+
+  .capture-box{
+    margin-top:26px;
+    padding-top:24px;
+    border-top:1px dashed rgba(35,20,7,0.18);
+  }
+  .capture-cta{
+    font-size:1.02rem;
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  .field{margin-bottom:12px;}
+  .field label{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:rgba(35,20,7,0.55);
+    margin-bottom:6px;
+  }
+  .field input{
+    width:100%;
+    padding:12px 14px;
+    border:1.5px solid rgba(35,20,7,0.18);
+    border-radius:5px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:0.96rem;
+    background:#fff;
+    color:var(--ink);
+  }
+  .field input:focus{border-color:var(--olive); outline:none;}
+
+  /* honeypot — hidden from real users, catches bots */
+  .hp-field{position:absolute; left:-9999px; top:-9999px;}
+
+  .capture-submit{width:100%; margin-top:6px;}
+  .privacy-note{
+    margin-top:12px;
+    font-size:0.78rem;
+    color:rgba(35,20,7,0.5);
+  }
+
+  .thanks-block{display:none; text-align:center; padding:20px 0;}
+  .thanks-block.active{display:block;}
+  .thanks-block .code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.3rem;
+    letter-spacing:0.05em;
+    background:rgba(92,107,47,0.1);
+    border:1.5px dashed var(--olive);
+    padding:12px 20px;
+    border-radius:6px;
+    display:inline-block;
+    margin:16px 0;
+  }
+
+  footer{
+    position:relative; z-index:2;
+    border-top:1px solid var(--line);
+    padding:28px 0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem;
+    color:var(--parchment-dim);
+  }
+
+  @media (max-width:520px){
+    .quiz-card{padding:28px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="oil-sheen"></div>
+
+<header>
+  <div class="wrap">
+    <div class="brand">THE OIL RESET <sup>PROTOCOL™</sup></div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="eyebrow">Free 5-question mini-test</div>
+    <h1>What's your Fat Load Index?</h1>
+    <p class="lede">This is a short version of the diagnostic from Chapter 1 of The Oil Reset Protocol™. Answer 5 quick questions, get your result instantly — plus a discount code for the full 90-day system.</p>
+
+    <div class="quiz-card">
+
+      <!-- progress bar -->
+      <div class="quiz-progress" id="quizProgress">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <!-- Questions -->
+      <div class="q-block active" data-q="1">
+        <div class="q-title">Question 1 of 5</div>
+        <div class="q-text">How often do you eat fried or fast food (restaurant-fried, delivery, drive-thru)?</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q1" value="0"> Rarely — a few times a month or less</label>
+          <label class="q-option"><input type="radio" name="q1" value="1"> A few times a week</label>
+          <label class="q-option"><input type="radio" name="q1" value="2"> Almost daily</label>
+        </div>
+      </div>
+
+      <div class="q-block" data-q="2">
+        <div class="q-title">Question 2 of 5</div>
+        <div class="q-text">Which oil do you cook with most often at home?</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q2" value="0"> Olive oil, avocado oil, ghee, or butter</label>
+          <label class="q-option"><input type="radio" name="q2" value="1"> Whatever's in the pantry — not sure of the type</label>
+          <label class="q-option"><input type="radio" name="q2" value="2"> Refined vegetable oil (sunflower, corn, soybean, canola)</label>
+        </div>
+      </div>
+
+      <div class="q-block" data-q="3">
+        <div class="q-title">Question 3 of 5</div>
+        <div class="q-text">How often do you eat packaged snacks, cookies, or store-bought baked goods?</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q3" value="0"> Rarely</label>
+          <label class="q-option"><input type="radio" name="q3" value="1"> A few times a week</label>
+          <label class="q-option"><input type="radio" name="q3" value="2"> Daily</label>
+        </div>
+      </div>
+
+      <div class="q-block" data-q="4">
+        <div class="q-title">Question 4 of 5</div>
+        <div class="q-text">Do you check ingredient labels for "vegetable oil," "palm oil," or "partially hydrogenated" oils?</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q4" value="0"> Yes, consistently</label>
+          <label class="q-option"><input type="radio" name="q4" value="1"> Sometimes</label>
+          <label class="q-option"><input type="radio" name="q4" value="2"> Never really thought about it</label>
+        </div>
+      </div>
+
+      <div class="q-block" data-q="5">
+        <div class="q-title">Question 5 of 5</div>
+        <div class="q-text">How would you describe your energy levels through a typical day?</div>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q5" value="0"> Steady, few crashes</label>
+          <label class="q-option"><input type="radio" name="q5" value="1"> OK, but I crash sometimes</label>
+          <label class="q-option"><input type="radio" name="q5" value="2"> Frequent energy dips or afternoon crashes</label>
+        </div>
+      </div>
+
+      <div class="quiz-nav">
+        <button class="quiz-back" id="backBtn" type="button">← Back</button>
+        <button class="btn-primary" id="nextBtn" type="button" disabled>Next →</button>
+      </div>
+
+      <!-- Result -->
+      <div class="result-block" id="resultBlock">
+        <div class="result-score" id="scoreOut">—</div>
+        <div class="result-label" id="scoreLabel">—</div>
+        <p class="result-text" id="scoreText"></p>
+
+        <div class="capture-box">
+          <div class="capture-cta">I want a discount promo code — send me my full breakdown</div>
+
+          <form id="captureForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <!-- honeypot anti-spam field: bots fill this in, real users never see it -->
+            <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off">
+
+            <input type="hidden" name="fat_load_score" id="hiddenScore">
+            <input type="hidden" name="_subject" value="New Fat Load Index lead — promo code request">
+
+            <div class="field">
+              <label for="firstName">First name</label>
+              <input type="text" id="firstName" name="name" required>
+            </div>
+            <div class="field">
+              <label for="emailAddr">Email address</label>
+              <input type="email" id="emailAddr" name="email" required>
+            </div>
+
+            <button type="submit" class="btn-primary capture-submit">I want a discount promo code →</button>
+            <p class="privacy-note">No spam. One email with your result and your code — that's it.</p>
+          </form>
+        </div>
+
+        <!-- Thank-you state, shown after successful submit -->
+        <div class="thanks-block" id="thanksBlock">
+          <h2 style="font-size:1.4rem;">You're in.</h2>
+          <p class="result-text" style="margin:0 auto;">Check your inbox in the next few minutes for your full Fat Load Index breakdown and your discount code for The Oil Reset Protocol™.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    THE OIL RESET PROTOCOL™ — Lika Lee · Educational content, not medical advice
+  </div>
+</footer>
+
+<script>
+(function(){
+  var answers = {};
+  var currentQ = 1;
+  var totalQ = 5;
+
+  var qBlocks = document.querySelectorAll('.q-block');
+  var progress = document.querySelectorAll('#quizProgress span');
+  var nextBtn = document.getElementById('nextBtn');
+  var backBtn = document.getElementById('backBtn');
+  var resultBlock = document.getElementById('resultBlock');
+  var quizCardInner = document.querySelectorAll('.q-block, .quiz-nav');
+
+  function updateProgress(){
+    progress.forEach(function(el, i){
+      el.classList.toggle('done', i < currentQ - 1 || (i === currentQ - 1 && answers['q'+currentQ] !== undefined));
+    });
+  }
+
+  function showQuestion(n){
+    qBlocks.forEach(function(b){ b.classList.toggle('active', parseInt(b.dataset.q,10) === n); });
+    backBtn.classList.toggle('show', n > 1);
+    var answered = answers['q'+n] !== undefined;
+    nextBtn.disabled = !answered;
+    nextBtn.textContent = (n === totalQ) ? 'See my result →' : 'Next →';
+    updateProgress();
+  }
+
+  // handle option selection
+  document.querySelectorAll('.q-block').forEach(function(block){
+    block.addEventListener('click', function(e){
+      var opt = e.target.closest('.q-option');
+      if(!opt) return;
+      var input = opt.querySelector('input');
+      input.checked = true;
+      var qName = input.name;
+      answers[qName] = parseInt(input.value, 10);
+
+      // visual selection state within this block
+      block.querySelectorAll('.q-option').forEach(function(o){ o.classList.remove('selected'); });
+      opt.classList.add('selected');
+
+      nextBtn.disabled = false;
+    });
+  });
+
+  nextBtn.addEventListener('click', function(){
+    if(currentQ < totalQ){
+      currentQ++;
+      showQuestion(currentQ);
+    } else {
+      showResult();
+    }
+  });
+
+  backBtn.addEventListener('click', function(){
+    if(currentQ > 1){
+      currentQ--;
+      showQuestion(currentQ);
+    }
+  });
+
+  function showResult(){
+    var total = 0;
+    for(var i=1;i<=totalQ;i++){ total += (answers['q'+i] || 0); }
+    // max score = 10 (5 questions x 2 max each)
+
+    var label, text;
+    if(total <= 2){
+      label = 'Low Fat Load';
+      text = "Your everyday choices already lean solid. The full diagnostic (18 questions) will show you exactly where the remaining gaps are.";
+    } else if(total <= 5){
+      label = 'Moderate Fat Load';
+      text = "A mix of good habits and a few common blind spots — likely in packaged foods or the type of oil you cook with most often.";
+    } else if(total <= 7){
+      label = 'Increased Fat Load';
+      text = "Industrial fats show up in your routine more often than not. A structured, phased reset — rather than random swaps — will move the needle fastest.";
+    } else {
+      label = 'High Fat Load';
+      text = "Your daily pattern leans heavily on fried, packaged, and refined-oil foods. This is exactly the starting point the 90-day Protocol is built to handle.";
+    }
+
+    document.getElementById('scoreOut').textContent = total + ' / 10';
+    document.getElementById('scoreLabel').textContent = label;
+    document.getElementById('scoreText').textContent = text;
+    document.getElementById('hiddenScore').value = total + '/10 — ' + label;
+
+    // hide quiz UI, show result
+    qBlocks.forEach(function(b){ b.classList.remove('active'); });
+    document.querySelector('.quiz-nav').style.display = 'none';
+    document.getElementById('quizProgress').style.display = 'none';
+    resultBlock.classList.add('active');
+  }
+
+  showQuestion(currentQ);
+
+  // AJAX submit to Formspree so we can show an inline thank-you instead of redirecting away
+  var form = document.getElementById('captureForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response){
+      if(response.ok){
+        form.style.display = 'none';
+        document.getElementById('thanksBlock').classList.add('active');
+      } else {
+        alert("Something went wrong — please try again, or email us directly.");
+      }
+    }).catch(function(){
+      alert("Something went wrong — please check your connection and try again.");
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
