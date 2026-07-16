@@ -47,6 +47,12 @@
   header{padding:24px 0; border-bottom:1px solid var(--line); position:relative; z-index:2;}
   .brand{font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem;}
   .brand sup{font-size:0.55em; opacity:0.7;}
+  .brand-link{
+    color:inherit;
+    text-decoration:none;
+    transition:opacity .15s ease;
+  }
+  .brand-link:hover{opacity:0.75;}
 
   main{position:relative; z-index:2; padding:64px 0 100px;}
 
@@ -222,7 +228,7 @@
 
 <header>
   <div class="wrap">
-    <div class="brand">THE OIL RESET <sup>PROTOCOL™</sup></div>
+    <div class="brand"><a class="brand-link" href="index.html">THE OIL RESET <sup>PROTOCOL™</sup></a></div>
   </div>
 </header>
 
@@ -304,31 +310,16 @@
         <div class="capture-box">
           <div class="capture-cta">I want a discount promo code — send me my full breakdown</div>
 
-          <form id="captureForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <!-- honeypot anti-spam field: bots fill this in, real users never see it -->
-            <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off">
-
-            <input type="hidden" name="fat_load_score" id="hiddenScore">
-            <input type="hidden" name="_subject" value="New Fat Load Index lead — promo code request">
-
-            <div class="field">
-              <label for="firstName">First name</label>
-              <input type="text" id="firstName" name="name" required>
-            </div>
-            <div class="field">
-              <label for="emailAddr">Email address</label>
-              <input type="email" id="emailAddr" name="email" required>
-            </div>
-
-            <button type="submit" class="btn-primary capture-submit">I want a discount promo code →</button>
-            <p class="privacy-note">No spam. One email with your result and your code — that's it.</p>
-          </form>
+          <div style="text-align:center; margin:22px 0 10px;">
+            <button type="button" id="email-btn" class="btn-primary capture-submit">Get My Promo Code via Email</button>
+          </div>
+          <p class="privacy-note">Tapping this opens your email app with everything pre-filled — just hit send.</p>
         </div>
 
-        <!-- Thank-you state, shown after successful submit -->
+        <!-- Thank-you state, shown right after the button is clicked -->
         <div class="thanks-block" id="thanksBlock">
-          <h2 style="font-size:1.4rem;">You're in.</h2>
-          <p class="result-text" style="margin:0 auto;">Check your inbox in the next few minutes for your full Fat Load Index breakdown and your discount code for The Oil Reset Protocol™.</p>
+          <h2 style="font-size:1.4rem;">Almost there.</h2>
+          <p class="result-text" style="margin:0 auto;">Your email app should have just opened with a message ready to go. Hit send, and your full Fat Load Index breakdown plus your discount code will be on their way to your inbox.</p>
         </div>
       </div>
 
@@ -347,6 +338,7 @@
   var answers = {};
   var currentQ = 1;
   var totalQ = 5;
+  var quizResultSummary = "";
 
   var qBlocks = document.querySelectorAll('.q-block');
   var progress = document.querySelectorAll('#quizProgress span');
@@ -427,7 +419,7 @@
     document.getElementById('scoreOut').textContent = total + ' / 10';
     document.getElementById('scoreLabel').textContent = label;
     document.getElementById('scoreText').textContent = text;
-    document.getElementById('hiddenScore').value = total + '/10 — ' + label;
+    quizResultSummary = total + '/10 — ' + label;
 
     // hide quiz UI, show result
     qBlocks.forEach(function(b){ b.classList.remove('active'); });
@@ -438,37 +430,32 @@
 
   showQuestion(currentQ);
 
-  // AJAX submit to Formspree so we can show an inline thank-you instead of redirecting away
-  var form = document.getElementById('captureForm');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var data = new FormData(form);
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(function(response){
-      if(response.ok){
-        form.style.display = 'none';
-        document.getElementById('thanksBlock').classList.add('active');
-      } else {
-        alert("Something went wrong — please try again, or email us directly.");
-      }
-    }).catch(function(){
-      alert("Something went wrong — please check your connection and try again.");
-    });
+  // Email button: opens the reader's default mail app with the recipient,
+  // subject, and body already filled in — no server, no form, nothing to submit.
+  //
+  // The address is split into two parts and joined only at click time.
+  // This keeps the full "user@domain" string out of the page's HTML source,
+  // so simple bots scanning the raw page text never see a complete address.
+  document.getElementById('email-btn').addEventListener('click', function(){
+    var user = "likaleelikaorp";   // everything BEFORE the @
+    var domain = "gmail.com";      // everything AFTER the @
+
+    var subject = encodeURIComponent("Send me the promo code!");
+    var body = encodeURIComponent(
+      "Hi! I just took the Fat Load Index quiz.\n\n" +
+      "My result: " + (quizResultSummary || "not calculated") + "\n\n" +
+      "Please send me my full breakdown and discount code."
+    );
+
+    window.location.href = "mailto:" + user + "@" + domain + "?subject=" + subject + "&body=" + body;
+
+    // Optimistic confirmation — mailto has no success callback,
+    // so we simply assume the mail app opened and let the reader take it from there.
+    document.querySelector('.capture-box').style.display = 'none';
+    document.getElementById('thanksBlock').classList.add('active');
   });
 })();
 </script>
 
-<div style="text-align: center; margin: 30px 0;">
-    <a href="index.html" style="font-size: 20px; font-weight: bold; color: #007bff; text-decoration: underline;">
-        TO THE MAIN PAGE
-    </a>
-</div>
-
-  
-  
-  
 </body>
 </html>
