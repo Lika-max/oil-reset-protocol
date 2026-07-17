@@ -310,16 +310,44 @@
         <div class="capture-box">
           <div class="capture-cta">I want a discount promo code — send me my full breakdown</div>
 
-          <div style="text-align:center; margin:22px 0 10px;">
-            <button type="button" id="email-btn" class="btn-primary capture-submit">Get My Promo Code via Email</button>
-          </div>
-          <p class="privacy-note">Tapping this opens your email app with everything pre-filled — just hit send.</p>
+          <form id="captureForm" action="https://api.web3forms.com/submit" method="POST">
+            <!-- ============================================================
+                 WEB3FORMS SETUP — REQUIRED BEFORE THIS FORM WILL WORK
+                 1. Go to https://web3forms.com
+                 2. Enter likaleelikaorp@gmail.com and click "Create Access Key"
+                 3. Web3Forms emails that address a unique Access Key (a UUID)
+                 4. Paste that key into the value below, replacing
+                    YOUR_ACCESS_KEY_HERE
+                 This key is safe to leave visible in the HTML — Web3Forms
+                 designs it to be public; it's just a routing ID, not a
+                 password, and it's tied only to the email above.
+                 ============================================================ -->
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="hidden" name="subject" value="New Fat Load Index lead — promo code request">
+            <input type="hidden" name="from_name" value="The Oil Reset Protocol — Quiz">
+            <input type="hidden" name="fat_load_result" id="hiddenScore">
+
+            <!-- Honeypot: Web3Forms auto-ignores submissions where this is filled in -->
+            <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
+
+            <div class="field">
+              <label for="firstName">First name</label>
+              <input type="text" id="firstName" name="name" required>
+            </div>
+            <div class="field">
+              <label for="emailAddr">Email address</label>
+              <input type="email" id="emailAddr" name="email" required>
+            </div>
+
+            <button type="submit" class="btn-primary capture-submit">I want a discount promo code →</button>
+            <p class="privacy-note">No spam. One email with your result and your code — that's it.</p>
+          </form>
         </div>
 
-        <!-- Thank-you state, shown right after the button is clicked -->
+        <!-- Thank-you state, shown after successful submit -->
         <div class="thanks-block" id="thanksBlock">
-          <h2 style="font-size:1.4rem;">Almost there.</h2>
-          <p class="result-text" style="margin:0 auto;">A completed message should open in your email app. Click "Send," and your discount code will be sent to your email.</p>
+          <h2 style="font-size:1.4rem;">You're in.</h2>
+          <p class="result-text" style="margin:0 auto;">Check your inbox in the next few minutes for your full Fat Load Index breakdown and your discount code for The Oil Reset Protocol™.</p>
         </div>
       </div>
 
@@ -430,29 +458,42 @@
 
   showQuestion(currentQ);
 
-  // Email button: opens the reader's default mail app with the recipient,
-  // subject, and body already filled in — no server, no form, nothing to submit.
-  //
-  // The address is split into two parts and joined only at click time.
-  // This keeps the full "user@domain" string out of the page's HTML source,
-  // so simple bots scanning the raw page text never see a complete address.
-  document.getElementById('email-btn').addEventListener('click', function(){
-    var user = "likaleelikaorp";   // everything BEFORE the @
-    var domain = "gmail.com";      // everything AFTER the @
+  // Submit the form to Web3Forms via fetch, so we can show an inline
+  // thank-you instead of redirecting the reader away from the page.
+  var captureForm = document.getElementById('captureForm');
+  captureForm.addEventListener('submit', function(e){
+    e.preventDefault();
 
-    var subject = encodeURIComponent("Send me the promo code!");
-    var body = encodeURIComponent(
-      "Hi! I just took the Fat Load Index quiz.\n\n" +
-      "My result: " + (quizResultSummary || "not calculated") + "\n\n" +
-      "Please send me my full breakdown and discount code."
-    );
+    // record the quiz result into the hidden field right before sending
+    document.getElementById('hiddenScore').value = quizResultSummary || 'not calculated';
 
-    window.location.href = "mailto:" + user + "@" + domain + "?subject=" + subject + "&body=" + body;
+    var submitBtn = captureForm.querySelector('.capture-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
 
-    // Optimistic confirmation — mailto has no success callback,
-    // so we simply assume the mail app opened and let the reader take it from there.
-    document.querySelector('.capture-box').style.display = 'none';
-    document.getElementById('thanksBlock').classList.add('active');
+    var formData = new FormData(captureForm);
+
+    fetch(captureForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(function(response){ return response.json(); })
+      .then(function(data){
+        if(data.success){
+          captureForm.closest('.capture-box').style.display = 'none';
+          document.getElementById('thanksBlock').classList.add('active');
+        } else {
+          alert("Something went wrong — please try again, or email us directly.");
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'I want a discount promo code →';
+        }
+      })
+      .catch(function(){
+        alert("Something went wrong — please check your connection and try again.");
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'I want a discount promo code →';
+      });
   });
 })();
 </script>
