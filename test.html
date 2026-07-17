@@ -310,38 +310,25 @@
         <div class="capture-box">
           <div class="capture-cta">I want a discount promo code — send me my full breakdown</div>
 
-          <form id="captureForm" action="https://api.web3forms.com/submit" method="POST">
-            <!-- ============================================================
-                 WEB3FORMS SETUP — REQUIRED BEFORE THIS FORM WILL WORK
-                 1. Go to https://web3forms.com
-                 2. Enter likaleelikaorp@gmail.com and click "Create Access Key"
-                 3. Web3Forms emails that address a unique Access Key (a UUID)
-                 4. Paste that key into the value below, replacing
-                    YOUR_ACCESS_KEY_HERE
-                 This key is safe to leave visible in the HTML — Web3Forms
-                 designs it to be public; it's just a routing ID, not a
-                 password, and it's tied only to the email above.
-                 ============================================================ -->
-            <input type="hidden" name="access_key" value="4858f4da-8a61-46ac-90eb-324b618d6bdc">
-            <input type="hidden" name="subject" value="New Fat Load Index lead — promo code request">
-            <input type="hidden" name="from_name" value="The Oil Reset Protocol — Quiz">
-            <input type="hidden" name="fat_load_result" id="hiddenScore">
+          <form id="captureForm" action="https:"https://formsubmit.co/likaleelikaorp@gmail.com" method="POST">
+                <!-- Отключаем капчу (картинки-роботы), чтобы клиенту было легко -->
+    <input type="hidden" name="_captcha" value="false">
 
-            <!-- Honeypot: Web3Forms auto-ignores submissions where this is filled in -->
-            <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
+    <!-- Текст письма, который автоматически улетит клиенту на почту -->
+    <input type="hidden" name="_autoresponse" value="Thank you! Here is your exclusive promo code:  B2BDSY . Use it at checkout on Lava.top to get your discount.">
 
-            <div class="field">
-              <label for="firstName">First name</label>
-              <input type="text" id="firstName" name="name" required>
-            </div>
-            <div class="field">
-              <label for="emailAddr">Email address</label>
-              <input type="email" id="emailAddr" name="email" required>
-            </div>
+    <!-- Куда перенаправить клиента после отправки (на главную страницу книги) -->
+    <input type="hidden" name="_next" value="https://lika-max.github.io/oil-reset-protocol">
 
-            <button type="submit" class="btn-primary capture-submit">I want a discount promo code →</button>
-            <p class="privacy-note">No spam. One email with your result and your code — that's it.</p>
-          </form>
+    <!-- Поле для Email клиента -->
+    <div class="form-group">
+        <input type="email" name="email" placeholder="Enter your email address" required>
+    </div>
+
+    <!-- Кнопка отправки -->
+    <button type="submit" class="btn-submit">Get Promo Code</button>
+</form>
+
         </div>
 
         <!-- Thank-you state, shown after successful submit -->
