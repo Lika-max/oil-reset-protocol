@@ -321,16 +321,24 @@
     <!-- Куда перенаправить клиента после отправки (на главную страницу книги) -->
     <input type="hidden" name="_next" value="https://app.lava.top/products/aced3758-6d9f-4c1e-92a4-15b6784e4186">
 
-    <!-- Поле для Email клиента -->
-    <div class="form-group">
-        <input type="email" name="email" placeholder="Enter your email address" required>
-    </div>
+     <div class="form-group">
+    <input type="email" name="email" id="buyerEmail" placeholder="Enter your email address" required>
+  </div>
 
-    <!-- Кнопка отправки -->
-    <button type="submit" class="btn-submit" style="width: 100%; padding: 15px; background: #c5a880; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 15px;">
+  <button type="submit" class="btn-submit" style="width: 100%; padding: 15px; background: #c5a880; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 15px;">
     Get Promo Code
-</button>
-       </form>
+  </button>
+</form>
+
+<script>
+  const form = document.querySelector('form');
+  const emailInput = document.getElementById('buyerEmail');
+  const replyto = document.getElementById('replyto');
+
+  form.addEventListener('submit', function () {
+    replyto.value = emailInput.value.trim();
+  });
+</script>
 
         </div>
 
